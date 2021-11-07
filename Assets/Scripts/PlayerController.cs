@@ -7,13 +7,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody2D rb2d;
-    [SerializeField] private BoxCollider2D coll2d;
-
     [SerializeField] private float speed;
     [SerializeField] private float jump;
     [SerializeField] private bool crouch;
-    [SerializeField] private Vector2 standingSize;
-    [SerializeField] private Vector2 crouchingSize;
+
+    private bool isGrounded = true;
 
 
     // Update is called once per frame
@@ -21,8 +19,6 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-        coll2d = gameObject.GetComponent<BoxCollider2D>();
-        standingSize = coll2d.size;
     }
     void Update()
     {
@@ -93,23 +89,22 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region jump movment
-        if (vertical > 0)
+        if (vertical > 0 && isGrounded)
         {
             rb2d.AddForce(new Vector2(0f, jump), ForceMode2D.Force);
+            isGrounded = false;
         }
         #endregion
 
-        #region crouch
-        if (crouch)
-        {
-            coll2d.size = crouchingSize;
+    }
 
-        }
-        else
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Platform"))
         {
-            coll2d.size = standingSize;
+            isGrounded = true;
         }
-        #endregion
+
     }
 
 }
