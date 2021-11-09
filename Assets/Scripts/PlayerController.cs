@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool crouch;
 
     private bool isGrounded = true;
+    public GameObject playerDeathText;
 
 
     // Update is called once per frame
@@ -103,6 +104,11 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Platform"))
         {
             isGrounded = true;
+        }
+        else if (other.gameObject.CompareTag("Death"))
+        {
+            playerDeathText.SetActive(true);
+            Destroy(gameObject);
         }
 
     }
