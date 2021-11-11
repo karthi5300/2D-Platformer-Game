@@ -16,7 +16,7 @@ public class KeyController : MonoBehaviour
             playerController.PickUpKey();
             isPickedup = true;
             KeyAnimation();
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, 0.5f);//adding delay to play key picked up animation before destroying the key
         }
     }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,14 +18,12 @@ public class PlayerController : MonoBehaviour
     public GameObject playerDeathText;
     public ScoreController scoreController;
 
-
-    // Update is called once per frame
-
     void Awake()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         isGrounded = true;
     }
+
     void Update()
     {
         //getting input value in a variable
@@ -100,7 +99,6 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
         #endregion
-
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -114,12 +112,22 @@ public class PlayerController : MonoBehaviour
             playerDeathText.SetActive(true);
             Destroy(gameObject);
         }
-
     }
 
     public void PickUpKey()
     {
         scoreController.IncreaseScore(10);
+    }
+
+    public void KillPlayer()
+    {
+        animator.SetBool("isDead", true);
+        this.CallWithDelay(ReloadLevel, 0.5f);
+    }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }
