@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class LevelOverController : MonoBehaviour
 {
     public GameObject levelCompletedText;
+    public GameObject player;
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,4 +23,5 @@ public class LevelOverController : MonoBehaviour
         levelCompletedText.SetActive(false);
         SceneManager.LoadScene(1);
     }
+
 }
