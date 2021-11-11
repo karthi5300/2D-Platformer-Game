@@ -2295,14 +2295,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3050470355190744632, guid: e3d45235d99d0924d8acf2eb2f1a74c2,
         type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 3050470355190744632, guid: e3d45235d99d0924d8acf2eb2f1a74c2,
-        type: 3}
       propertyPath: m_Name
       value: Key1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050470355190744633, guid: e3d45235d99d0924d8acf2eb2f1a74c2,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3050470355190744639, guid: e3d45235d99d0924d8acf2eb2f1a74c2,
         type: 3}

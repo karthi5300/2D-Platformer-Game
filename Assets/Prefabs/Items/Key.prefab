@@ -16,7 +16,7 @@ GameObject:
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -115,7 +115,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0075445175, y: -0.023244858}
@@ -143,3 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8470e4b8ea8e4534cb435bb05fd5dae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 3050470355190744638}
+  isPickedup: 0
