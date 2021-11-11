@@ -770,6 +770,8 @@ MonoBehaviour:
   speed: 7
   jump: 200
   crouch: 0
+  hearts: []
+  life: 0
   playerDeathText: {fileID: 373455489}
   scoreController: {fileID: 1790486356}
 --- !u!1 &943124495
@@ -2629,6 +2631,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finish
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6602270529294987062, guid: 62a8596886ea2674889bd4ea34bc549e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62a8596886ea2674889bd4ea34bc549e, type: 3}

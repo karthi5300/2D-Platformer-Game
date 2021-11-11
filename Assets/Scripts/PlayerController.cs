@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jump;
     [SerializeField] private bool crouch;
+    public GameObject[] hearts;
+    public int life;
 
     private bool isGrounded;
 
@@ -22,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         isGrounded = true;
+        life = hearts.Length;
     }
 
     void Update()
@@ -41,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
         playerAnimation(horizontal, vertical, crouch);
         playerMovement(horizontal, vertical, crouch);
+
     }
 
     void playerAnimation(float horizontal, float vertical, bool crouch)
@@ -121,8 +126,27 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
-        animator.SetBool("isDead", true);
-        this.CallWithDelay(ReloadLevel, 0.5f);
+        //animator.SetBool("isDead", true);
+        //this.CallWithDelay(ReloadLevel, 0.5f);
+
+
+
+        if (life > 2)
+        {
+            Destroy(hearts[2].gameObject);
+        }
+        else if (life > 1)
+        {
+            Destroy(hearts[1].gameObject);
+        }
+        else if (life > 0)
+        {
+            Destroy(hearts[0].gameObject);
+            animator.SetBool("isDead", true);
+            this.CallWithDelay(ReloadLevel, 0.5f);
+        }
+
+        life--;
     }
 
     public void ReloadLevel()
