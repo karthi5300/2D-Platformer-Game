@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jump;
     [SerializeField] private bool crouch;
 
-    private bool isGrounded = true;
+    private bool isGrounded;
+
     public GameObject playerDeathText;
+    public ScoreController scoreController;
 
 
     // Update is called once per frame
@@ -20,6 +23,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
+        isGrounded = true;
     }
     void Update()
     {
@@ -111,6 +115,11 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    public void PickUpKey()
+    {
+        scoreController.IncreaseScore(10);
     }
 
 }
