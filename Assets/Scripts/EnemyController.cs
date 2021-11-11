@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-
     public float walkSpeed;
 
     public bool movingRight = true;
     public Transform groundDetection;
+
+    [SerializeField] public BoxCollider2D bodyCollider;
 
     void Update()
     {
@@ -18,18 +19,16 @@ public class EnemyController : MonoBehaviour
 
         if (groundInfo.collider == false)
         {
-            if (movingRight == true)
-            {
-                transform.eulerAngles = new Vector3(0, -180, 0);
-                movingRight = false;
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                movingRight = true;
-            }
+            transform.eulerAngles = new Vector3(0, -180, 0);
+            movingRight = false;
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+            movingRight = true;
         }
     }
+
 
     void OnCollisionEnter2D(Collision2D other)
     {
