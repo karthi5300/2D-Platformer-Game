@@ -14,6 +14,7 @@ public class LevelOverController : MonoBehaviour
         if (other.gameObject.GetComponent<PlayerController>() != null)
         {
             levelCompletedText.SetActive(true);
+            LevelManager.Instance.SetLevelStatus(SceneManager.GetActiveScene().name, LevelStatus.Completed);
             Invoke("LoadNextLevel", 3f);
         }
     }
