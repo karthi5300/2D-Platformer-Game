@@ -13,13 +13,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jump;
     [SerializeField] private bool crouch;
-    public GameObject[] hearts;
-    public int life;
 
+    public GameObject[] hearts;
+    private int life;
     private bool isGrounded;
 
     public GameObject playerDeathText;
     public ScoreController scoreController;
+    public GameOverController gameOverController;
 
     void Awake()
     {
@@ -126,32 +127,35 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
-        //animator.SetBool("isDead", true);
-        //this.CallWithDelay(ReloadLevel, 0.5f);
-
-
-
         if (life > 2)
         {
             Destroy(hearts[2].gameObject);
+            animator.SetBool("isHurt", true);
+            this.CallWithDelay(ResetPlayerHurtAnimation, 0.5f);
         }
         else if (life > 1)
         {
             Destroy(hearts[1].gameObject);
+            animator.SetBool("isHurt", true);
+            this.CallWithDelay(ResetPlayerHurtAnimation, 0.5f);
         }
         else if (life > 0)
         {
             Destroy(hearts[0].gameObject);
             animator.SetBool("isDead", true);
-            this.CallWithDelay(ReloadLevel, 0.5f);
+            gameOverController.PlayerDied();
+            this.enabled = false;   //disables the gameobject using this script
+            //this.CallWithDelay(ReloadLevel, 0.5f);
         }
 
         life--;
     }
 
-    public void ReloadLevel()
+
+
+    public void ResetPlayerHurtAnimation()
     {
-        SceneManager.LoadScene(0);
+        animator.SetBool("isHurt", false);
     }
 
 }

@@ -14,14 +14,14 @@ public class LevelOverController : MonoBehaviour
         if (other.gameObject.GetComponent<PlayerController>() != null)
         {
             levelCompletedText.SetActive(true);
-            Invoke("LoadNextLevel", 3);
+            Invoke("LoadNextLevel", 3f);
         }
     }
 
     void LoadNextLevel()
     {
         levelCompletedText.SetActive(false);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
 }
