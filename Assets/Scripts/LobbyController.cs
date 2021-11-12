@@ -1,17 +1,19 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LobbyController : MonoBehaviour
 {
+    public Button playButton;
+    public GameObject levelSelection;
 
-    public void PlayButtonClick()
+    void Awake()
     {
-        SceneManager.LoadScene(1);
+        playButton.onClick.AddListener(PlayGame);
     }
 
-    public void QuitButtonClick()
+    public void PlayGame()
     {
-        Application.Quit();
+        levelSelection.SetActive(true);
     }
 
 }
