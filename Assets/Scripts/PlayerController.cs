@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject playerDeathText;
     public ScoreController scoreController;
+    public GameOverController gameOverController;
 
     void Awake()
     {
@@ -142,16 +143,15 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(hearts[0].gameObject);
             animator.SetBool("isDead", true);
-            this.CallWithDelay(ReloadLevel, 0.5f);
+            gameOverController.PlayerDied();
+            this.enabled = false;   //disables the gameobject using this script
+            //this.CallWithDelay(ReloadLevel, 0.5f);
         }
 
         life--;
     }
 
-    public void ReloadLevel()
-    {
-        SceneManager.LoadScene(0);
-    }
+
 
     public void ResetPlayerHurtAnimation()
     {

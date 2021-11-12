@@ -21,7 +21,7 @@ public class LevelOverController : MonoBehaviour
     void LoadNextLevel()
     {
         levelCompletedText.SetActive(false);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
 }
