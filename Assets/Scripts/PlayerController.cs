@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jump;
     [SerializeField] private bool crouch;
-    public GameObject[] hearts;
-    public int life;
 
+    public GameObject[] hearts;
+    private int life;
     private bool isGrounded;
 
     public GameObject playerDeathText;
@@ -126,18 +126,17 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
-        //animator.SetBool("isDead", true);
-        //this.CallWithDelay(ReloadLevel, 0.5f);
-
-
-
         if (life > 2)
         {
             Destroy(hearts[2].gameObject);
+            animator.SetBool("isHurt", true);
+            this.CallWithDelay(ResetPlayerHurtAnimation, 0.5f);
         }
         else if (life > 1)
         {
             Destroy(hearts[1].gameObject);
+            animator.SetBool("isHurt", true);
+            this.CallWithDelay(ResetPlayerHurtAnimation, 0.5f);
         }
         else if (life > 0)
         {
@@ -152,6 +151,11 @@ public class PlayerController : MonoBehaviour
     public void ReloadLevel()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ResetPlayerHurtAnimation()
+    {
+        animator.SetBool("isHurt", false);
     }
 
 }

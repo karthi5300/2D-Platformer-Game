@@ -21,13 +21,12 @@ public class CameraFollow : MonoBehaviour
             return;
         }
 
-        tempPosition = transform.position;
+        tempPosition = transform.position;  //get camera's current position
 
+        tempPosition.x = player.position.x; //get player's x position
+        tempPosition.y = player.position.y; //get player's y position
 
-        tempPosition.x = player.position.x;
-        tempPosition.y = player.position.y;
-
-        transform.position = tempPosition;
+        transform.position = tempPosition;  //set it to camera's position
 
     }
 }
