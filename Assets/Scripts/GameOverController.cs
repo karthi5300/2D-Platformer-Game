@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
-    public Button buttonRestart;
+    [SerializeField] private Button buttonRestart;
+    [SerializeField] private AudioClip restartLevelSound;
 
     void Awake()
     {
@@ -14,10 +15,12 @@ public class GameOverController : MonoBehaviour
     public void PlayerDied()
     {
         gameObject.SetActive(true);
+
     }
 
     public void RestartLevel()
     {
+        SoundManager.Instance.Play(restartLevelSound);
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.buildIndex);
     }

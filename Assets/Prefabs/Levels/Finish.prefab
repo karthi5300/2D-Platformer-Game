@@ -125,3 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelCompletedText: {fileID: 0}
   player: {fileID: 0}
+  gameCompletedImage: {fileID: 0}
+  levelCompletionSound: {fileID: 8300000, guid: 0cce91cb3c5bf814e805233571eab8ea,
+    type: 3}

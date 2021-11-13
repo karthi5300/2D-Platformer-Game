@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +16,10 @@ public class PlayerController : MonoBehaviour
     public GameObject playerDeathText;
     public ScoreController scoreController;
     public GameOverController gameOverController;
+
+    public AudioClip playerDeadSound;
+    public AudioClip playerJumpSound;
+    public AudioClip playerWalkSound;
 
     void Awake()
     {
@@ -103,6 +102,7 @@ public class PlayerController : MonoBehaviour
         {
             rb2d.AddForce(new Vector2(0f, jump), ForceMode2D.Force);
             isGrounded = false;
+            SoundManager.Instance.Play(playerJumpSound);
         }
         #endregion
     }
@@ -141,6 +141,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (life > 0)
         {
+            SoundManager.Instance.Play(playerDeadSound);
             Destroy(hearts[0].gameObject);
             animator.SetBool("isDead", true);
             gameOverController.PlayerDied();

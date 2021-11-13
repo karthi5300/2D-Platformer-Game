@@ -3,15 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class LevelOverController : MonoBehaviour
 {
-    public GameObject levelCompletedText;
-    public GameObject player;
-    public GameObject gameCompletedImage;
+    [SerializeField] private GameObject levelCompletedText;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject gameCompletedImage;
+    [SerializeField] private AudioClip levelCompletionSound;
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<PlayerController>() != null)
         {
             levelCompletedText.SetActive(true);
+            SoundManager.Instance.Play(levelCompletionSound);
             Invoke("LoadNextLevel", 3f);
         }
     }
@@ -22,7 +24,7 @@ public class LevelOverController : MonoBehaviour
 
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
 
-        if (currentLevelIndex == 5)
+        if (currentLevelIndex == 6)
         {
             gameCompletedImage.SetActive(true);
         }
