@@ -18,7 +18,6 @@ public class GameOverController : MonoBehaviour
 
     public void RestartLevel()
     {
-        Debug.Log("Restarting Level...");
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.buildIndex);
     }

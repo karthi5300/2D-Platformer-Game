@@ -5,13 +5,13 @@ public class LevelOverController : MonoBehaviour
 {
     public GameObject levelCompletedText;
     public GameObject player;
+    public GameObject gameCompletedImage;
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<PlayerController>() != null)
         {
             levelCompletedText.SetActive(true);
-            Debug.Log("Level finished by the player");
             Invoke("LoadNextLevel", 3f);
         }
     }
@@ -21,13 +21,15 @@ public class LevelOverController : MonoBehaviour
         levelCompletedText.SetActive(false);
 
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
-        if (currentLevelIndex >= PlayerPrefs.GetInt("levelLock"))
-        {
-            PlayerPrefs.SetInt("levelLock", currentLevelIndex + 1);
 
-            //for go to next level
-            SceneManager.LoadScene(currentLevelIndex + 1);
+        if (currentLevelIndex == 5)
+        {
+            gameCompletedImage.SetActive(true);
         }
+
+        int nextLevelIndex = currentLevelIndex + 1;
+        PlayerPrefs.SetInt("levelLock", nextLevelIndex);
+        SceneManager.LoadScene(nextLevelIndex);
     }
 
 }

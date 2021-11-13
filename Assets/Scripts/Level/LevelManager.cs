@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelLock = PlayerPrefs.GetInt("LevelLock", 1);
+        levelLock = PlayerPrefs.GetInt("levelLock", 1);
 
         for (int i = 0; i < levelButtons.Length; i++)
         {
