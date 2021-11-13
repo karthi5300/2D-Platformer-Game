@@ -219,26 +219,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &160169185 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6602270529294987063, guid: 62a8596886ea2674889bd4ea34bc549e,
-    type: 3}
-  m_PrefabInstance: {fileID: 818551019}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &160169186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160169185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73e82b125d86dc04886527f10886bac3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelCompletedText: {fileID: 1733563726}
-  player: {fileID: 796650504}
 --- !u!1 &207366380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,21 +999,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1957164613, guid: 62a8596886ea2674889bd4ea34bc549e, type: 3}
+    - target: {fileID: 818551021, guid: 62a8596886ea2674889bd4ea34bc549e, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 796650504}
-    - target: {fileID: 1957164613, guid: 62a8596886ea2674889bd4ea34bc549e, type: 3}
-      propertyPath: levelCompletedText
-      value: 
-      objectReference: {fileID: 1733563726}
-    - target: {fileID: 3153116422889865630, guid: 62a8596886ea2674889bd4ea34bc549e,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 796650504}
-    - target: {fileID: 3153116422889865630, guid: 62a8596886ea2674889bd4ea34bc549e,
-        type: 3}
+    - target: {fileID: 818551021, guid: 62a8596886ea2674889bd4ea34bc549e, type: 3}
       propertyPath: levelCompletedText
       value: 
       objectReference: {fileID: 1733563726}
@@ -1097,8 +1067,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finish
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1957164613, guid: 62a8596886ea2674889bd4ea34bc549e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62a8596886ea2674889bd4ea34bc549e, type: 3}
 --- !u!1 &910391112
 GameObject:
@@ -1358,7 +1327,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RESTART GAME
+  m_Text: RESTART LEVEL
 --- !u!222 &1068068813
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2303,7 +2272,7 @@ GameObject:
   - component: {fileID: 1440980909}
   - component: {fileID: 1440980908}
   m_Layer: 5
-  m_Name: RestartGameButton
+  m_Name: RestartLevelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,56 +1,32 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private static LevelManager instance;
-    public static LevelManager Instance { get { return instance; } }
-    public string Level1;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    int levelLock;
+    public Button[] levelButtons;
 
+    // Start is called before the first frame update
     void Start()
     {
-        if (GetLevelStatus(Level1) == LevelStatus.Locked)
+        levelLock = PlayerPrefs.GetInt("LevelLock", 1);
+
+        for (int i = 0; i < levelButtons.Length; i++)
         {
-            SetLevelStatus(Level1, LevelStatus.Unlocked);
+            levelButtons[i].interactable = false;
+        }
+
+        for (int i = 0; i < levelLock; i++)
+        {
+            levelButtons[i].interactable = true;
         }
     }
 
-    public void MarkLevelComplete(string level)
+    public void OpenLevel(int levelIndex)
     {
-        //set current level status as Complete
-        Scene currentScene = SceneManager.GetActiveScene();
-        LevelManager.Instance.SetLevelStatus(currentScene.name, LevelStatus.Completed);
-
-        //set next level status as Unlocked
-        int NextSceneIndex = currentScene.buildIndex + 1;
-        Scene nextScene = SceneManager.GetSceneAt(NextSceneIndex);
-        LevelManager.Instance.SetLevelStatus(currentScene.name, LevelStatus.Unlocked);
+        SceneManager.LoadScene(levelIndex);
     }
-
-    public LevelStatus GetLevelStatus(string level)
-    {
-        LevelStatus levelStatus = (LevelStatus)PlayerPrefs.GetInt(level, 0);
-        return levelStatus;
-    }
-
-    public void SetLevelStatus(string level, LevelStatus levelStatus)
-    {
-        PlayerPrefs.SetInt(level, (int)levelStatus);
-        Debug.Log("Setting level : " + level + " Status : " + levelStatus);
-    }
-
 
 }

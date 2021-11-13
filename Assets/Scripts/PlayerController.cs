@@ -144,14 +144,12 @@ public class PlayerController : MonoBehaviour
             Destroy(hearts[0].gameObject);
             animator.SetBool("isDead", true);
             gameOverController.PlayerDied();
-            this.enabled = false;   //disables the gameobject using this script
-            //this.CallWithDelay(ReloadLevel, 0.5f);
+            Debug.Log("Player Died...Game Over");
+            this.enabled = false;   //disables the gameobject which uses this script
         }
 
         life--;
     }
-
-
 
     public void ResetPlayerHurtAnimation()
     {
