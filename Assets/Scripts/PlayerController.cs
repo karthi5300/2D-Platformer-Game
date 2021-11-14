@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +16,12 @@ public class PlayerController : MonoBehaviour
     public GameObject playerDeathText;
     public ScoreController scoreController;
     public GameOverController gameOverController;
+
+    public AudioClip playerDeadSound;
+    public AudioClip playerJumpStartSound;
+    public AudioClip playerJumpEndSound;
+    public AudioClip playerWalkSound;
+    public AudioClip playerHurtSound;
 
     void Awake()
     {
@@ -115,7 +116,12 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Death"))
         {
-            playerDeathText.SetActive(true);
+            SoundManager.Instance.Play(playerDeadSound);
+            Destroy(hearts[0].gameObject);
+            animator.SetBool("isDead", true);
+            gameOverController.PlayerDied();
+            Debug.Log("Player Died...Game Over");
+            this.enabled = false;   //disables the gameobject which uses this script
             Destroy(gameObject);
         }
     }
@@ -129,25 +135,28 @@ public class PlayerController : MonoBehaviour
     {
         if (life > 2)
         {
+            SoundManager.Instance.Play(playerHurtSound);
             Destroy(hearts[2].gameObject);
             animator.SetBool("isHurt", true);
             this.CallWithDelay(ResetPlayerHurtAnimation, 0.5f);
         }
         else if (life > 1)
         {
+            SoundManager.Instance.Play(playerHurtSound);
             Destroy(hearts[1].gameObject);
             animator.SetBool("isHurt", true);
             this.CallWithDelay(ResetPlayerHurtAnimation, 0.5f);
         }
         else if (life > 0)
         {
+            SoundManager.Instance.Play(playerHurtSound);
+            SoundManager.Instance.Play(playerDeadSound);
             Destroy(hearts[0].gameObject);
             animator.SetBool("isDead", true);
             gameOverController.PlayerDied();
             Debug.Log("Player Died...Game Over");
             this.enabled = false;   //disables the gameobject which uses this script
         }
-
         life--;
     }
 
@@ -156,4 +165,12 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isHurt", false);
     }
 
+    public void JumpStartSound()
+    {
+        SoundManager.Instance.Play(playerJumpStartSound);
+    }
+    public void JumpEndSound()
+    {
+        SoundManager.Instance.Play(playerJumpEndSound);
+    }
 }

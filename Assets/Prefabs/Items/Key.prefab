@@ -145,3 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3050470355190744638}
   isPickedup: 0
+  keyPickedUpSound: {fileID: 8300000, guid: 8d331b50969371c4db3319a915ef2cad, type: 3}

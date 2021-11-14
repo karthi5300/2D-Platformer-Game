@@ -7,6 +7,7 @@ public class KeyController : MonoBehaviour
 
     [SerializeField] private Animator animator;
     [SerializeField] private bool isPickedup = false;
+    [SerializeField] private AudioClip keyPickedUpSound;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,6 +25,7 @@ public class KeyController : MonoBehaviour
     {
         if (isPickedup)
         {
+            SoundManager.Instance.Play(keyPickedUpSound);
             animator.SetBool("isPickedUp", true);
             isPickedup = false;
         }
