@@ -178,5 +178,8 @@ MonoBehaviour:
   scoreController: {fileID: 0}
   gameOverController: {fileID: 0}
   playerDeadSound: {fileID: 8300000, guid: 31b2284e8ab3f244182080ca7da474b7, type: 3}
-  playerJumpSound: {fileID: 8300000, guid: e5cb0976ee7cf93489107ede5175519b, type: 3}
+  playerJumpStartSound: {fileID: 8300000, guid: e5cb0976ee7cf93489107ede5175519b,
+    type: 3}
+  playerJumpEndSound: {fileID: 8300000, guid: ea217dc637f73b649a2866febb99c4a2, type: 3}
   playerWalkSound: {fileID: 8300000, guid: 13de3c8b19190eb488622c2982f7e977, type: 3}
+  playerHurtSound: {fileID: 8300000, guid: 55cf2d6b154ee6d4e87f7f87ac724172, type: 3}

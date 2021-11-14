@@ -283,6 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonClickSound: {fileID: 8300000, guid: a4dc23583fb1dc84a89049f88b06efe8, type: 3}
   levelSelectionSound: {fileID: 8300000, guid: df6d1af64fdebb04d80a54b27b720509, type: 3}
+  levelCompletionSound: {fileID: 0}
 --- !u!1 &54071664
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonClickSound: {fileID: 8300000, guid: a4dc23583fb1dc84a89049f88b06efe8, type: 3}
   levelSelectionSound: {fileID: 8300000, guid: df6d1af64fdebb04d80a54b27b720509, type: 3}
+  levelCompletionSound: {fileID: 0}
 --- !u!114 &184380606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1084,6 +1086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonClickSound: {fileID: 8300000, guid: a4dc23583fb1dc84a89049f88b06efe8, type: 3}
   levelSelectionSound: {fileID: 8300000, guid: df6d1af64fdebb04d80a54b27b720509, type: 3}
+  levelCompletionSound: {fileID: 0}
 --- !u!1 &464772347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,6 +1247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonClickSound: {fileID: 8300000, guid: a4dc23583fb1dc84a89049f88b06efe8, type: 3}
   levelSelectionSound: {fileID: 8300000, guid: df6d1af64fdebb04d80a54b27b720509, type: 3}
+  levelCompletionSound: {fileID: 0}
 --- !u!1 &600247026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,6 +1720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonClickSound: {fileID: 8300000, guid: a4dc23583fb1dc84a89049f88b06efe8, type: 3}
   levelSelectionSound: {fileID: 8300000, guid: df6d1af64fdebb04d80a54b27b720509, type: 3}
+  levelCompletionSound: {fileID: 0}
 --- !u!1 &1008423132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,6 +2291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonClickSound: {fileID: 8300000, guid: a4dc23583fb1dc84a89049f88b06efe8, type: 3}
   levelSelectionSound: {fileID: 0}
+  levelCompletionSound: {fileID: 0}
 --- !u!1 &1634244539
 GameObject:
   m_ObjectHideFlags: 0
